@@ -2,30 +2,33 @@ import cmath
 ch='y'    
 while ch.lower()=='y':
     print("The quadratic equation is to be in the format ax^2+bx+c")
-    a=eval(input("Enter coefficient a: "))
-    b=eval(input("Enter coefficient b: "))
-    c=eval(input("Enter coefficient c: "))
+    a=float(input("Enter coefficient a: "))
+    b=float(input("Enter coefficient b: "))
+    c=float(input("Enter coefficient c: "))
     disc=(b**2)-(4*a*c)
     print("Discriminant shows that:")
-    def solve():    
+    def solve():
         print("Calculating the roots...")
-        r1=(-b+cmath.sqrt(disc)/(2*a))
-        r2=(-b-cmath.sqrt(disc)/(2*a))
+        r1=((-b+cmath.sqrt(disc))/(2*a))
+        r2=((-b-cmath.sqrt(disc))/(2*a))
         print("The roots of the given quadratic equation are: ")
         return r1,r2
 
-    if disc==0:
-        print("The equation has two equal real roots")
+    if a==0:
+        print("The coefficient a cannot be zero.")
+        continue
+    elif disc==0:
+        print("The equation has two equal real roots.")
         s1,s2=solve()
         print(s1.real)
         print(s2.real)
     elif disc>0:
-        print("The equation has two disticnt real roots")
+        print("The equation has two distinct real roots.")
         s1,s2=solve()
         print(s1.real)
         print(s2.real)
     else:
-        print("The equation has no real roots")
+        print("The equation has two complex roots.")
         s1,s2=solve()
         print(s1)
         print(s2)
