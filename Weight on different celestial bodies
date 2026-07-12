@@ -1,0 +1,23 @@
+info={1: ("Mercury", 3.70),2: ("Venus", 8.87),3: ("Earth", 9.81),4: ("Mars", 3.71),5: ("Jupiter", 24.79),6: ("Saturn", 10.44),7: ("Uranus", 8.69),8: ("Neptune", 11.15),9: ("Earth's Moon", 1.62),10: ("Pluto", 0.62),11: ("Ceres", 0.27),12: ("Titan", 1.35),13: ("Europa", 1.31)}
+opt='y'
+while opt.lower()=='y':
+    m=float(input("Enter your mass (in kg): "))
+    #menu
+    for x in info:
+        print(x,info[x][0])
+    ch=int(input("Enter your choice(1-13): "))
+    if ch not in info:
+        print("Enter a valid option")
+        opt=input("Do you want to try again?(y/n): ")
+        continue
+    
+    n,g=info[ch]
+    F=m*g
+    e=m*9.8
+    print("Mass: ",m,"kg")
+    print("Weight on Earth: ", round(e,2) ,"N")
+    print("Gravity on", n,": ",round(g,2),"m/s^2")
+    print("Weight on", n,": ",round(F,2),"N")
+    print("Difference in Weight: ",round(F-e,2),"N")
+            
+    opt=input("Do you want to try again?(y/n): ")
